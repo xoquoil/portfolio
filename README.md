@@ -41,6 +41,10 @@
 ・本リリースまでに作っていたいもの
 　ログイン機能
 　SNSとの連携機能
+ 
 ■ 機能の実装方針予定
 一般的なCRUD以外の実装予定の機能についてそれぞれどのようなイメージ(使用するAPIや)で実装する予定なのか現状考えているもので良いので教えて下さい。
 地図作成機能：Google Maps APIやOpenStreetMap APIなどの地図サービスを使用してカスタマイズ可能な地図を実装する予定です。
+
+■ 画面遷移図
+Figma：https://www.figma.com/design/z8oIaDpDxaxCe3kVMdqtfU/Untitled?node-id=9-31&node-type=frame&t=1qODjWwzMJDepswb-0
