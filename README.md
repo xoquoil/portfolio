@@ -48,3 +48,6 @@
 
 ■ 画面遷移図
 Figma：https://www.figma.com/design/z8oIaDpDxaxCe3kVMdqtfU/Untitled?node-id=9-31&node-type=frame&t=1qODjWwzMJDepswb-0
+
+■ ER図
+draw.io：https://drive.google.com/file/d/11OYp4d_cBpnRXFWnEE8uZN-l4pOJQwmD/view?usp=drive_link
