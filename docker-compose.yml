@@ -1,0 +1,29 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: ["bin/rails", "s", "-b", "0.0.0.0"]
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app:cached
+      - /app/vendor
+      - /app/tmp
+      - /app/log
+      - /app/.git
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DATABASE_PASS:-bar}"
+      MYSQL_DATABASE: "${DATABASE_NAME:-app_development}"
+      MYSQL_USER: "${DATABASE_USER:-foo}"
+      MYSQL_PASSWORD: "${DATABASE_PASS:-bar}"
+    volumes:
+      - db:/var/lib/mysql:cached
+    ports:
+      - "3306:3306"
+
+volumes:
+  db:
