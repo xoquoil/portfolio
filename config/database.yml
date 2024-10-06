@@ -16,6 +16,7 @@ default: &default
   username: root
   password: <%= ENV.fetch('DATABASE_PASS') { 'bar' } %>
   host: <%= ENV.fetch('DATABASE_HOST') { 'db' } %>
+  url: <%= ENV['JAWSDB_URL'] %>
 
 development:
   <<: *default
