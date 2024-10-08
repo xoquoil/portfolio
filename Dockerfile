@@ -1,4 +1,4 @@
-FROM ruby:3.0.0
+FROM ruby:3.3.5
 
 ENV APP=/app
 RUN mkdir -p ${APP}
@@ -13,7 +13,7 @@ ENV DEPENDENCY="nodejs libpq-dev libsqlite3-dev libssl-dev libgeos-dev curl less
     DEV_DEPENDENCY="build-essential" \
     YARN_VERSION=1.22.4
 RUN set -x && \
-    curl -sL https://deb.nodesource.com/setup_15.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get update && \
     apt-get install -yq --no-install-recommends ${DEPENDENCY} ${DEV_DEPENDENCY} && \
     bash -c "curl -sL --compressed https://yarnpkg.com/downloads/${YARN_VERSION}/yarn-v${YARN_VERSION}.tar.gz | tee >(tar zx -C /usr/local/ --strip=1 --wildcards yarn*/bin --no-same-owner --no-same-permissions) | tar zx -C /usr/local/ --strip=1 --wildcards yarn*/lib --no-same-owner --no-same-permissions" && \
