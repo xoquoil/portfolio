@@ -3,6 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.3.5'
 
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'carrierwave'
+gem 'kaminari'
+gem 'bootstrap'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7', '>= 6.1.7.8'
 # Use mysql as the database for Active Record
