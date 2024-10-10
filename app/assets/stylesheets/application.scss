@@ -14,4 +14,7 @@
  *= require_self
  */
  @import 'bootstrap/dist/css/bootstrap';
- 
+ #map {
+    height: 450px;
+    width: 800px;
+  }
