@@ -11,3 +11,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 Rails.start()
 ActiveStorage.start()
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.add_fields').forEach(function(link) {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        let time = new Date().getTime();
+        let linkId = link.getAttribute('data-id');
+        let fields = link.getAttribute('data-fields').replace(/new_\w+/g, linkId);
+        document.querySelector('#pins').insertAdjacentHTML('beforeend', fields);
+      });
+    });
+  });

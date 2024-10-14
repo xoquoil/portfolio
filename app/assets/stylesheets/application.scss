@@ -15,6 +15,12 @@
  */
  @import 'bootstrap/dist/css/bootstrap';
  #map {
-    height: 450px;
-    width: 800px;
+    height: 630px;
+    width: 1120px;
+    margin-left: 10%;
+  }
+
+  .form-container {
+    max-height: 80vh; /* ビューポート全体の高さ */
+    overflow-y: auto; /* 縦スクロールを有効にする */
   }
