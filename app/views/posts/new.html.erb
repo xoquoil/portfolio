@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <div class="row">
+  <% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from being saved:</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+    <div class="col-md-4 col-12 mt-4 form-container">
+      <div class="card p-1">
+        <%= form_with(model: @post, local: true) do |form| %>
+          <div class="mb-3">
+            <%= form.label :name, "タイトル" %>
+            <%= form.text_field :name, class: "form-control" %>
+          </div>
+        
+          <div id="pins">
+            <%= form.fields_for :pins do |pin_form| %>
+              <div class="pin-fields mb-5">
+                <%= pin_form.text_field :name, class: "form-control", placeholder: 'ピンのタイトル' %>
+        
+                <%= pin_form.text_field :latitude, class: "form-control", placeholder: '緯度' %>
+        
+                <%= pin_form.text_field :longitude, class: "form-control", placeholder: '経度' %>
+
+                <%= pin_form.text_area :body, class: "form-control", placeholder: 'ピンの説明' %>
+        
+                <%= pin_form.check_box :_destroy %>
+                <%= pin_form.label :_destroy, "削除" %>
+              </div>
+            <% end %>
+          </div>
+          <%= link_to_add_fields "ピンを追加", form, :pins %>
+          <div>
+            <%= form.submit "投稿", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  <div class="col-md-auto col-12 p-0 mt-4">
+    <div class="map">
+      <div id="map">
+      </div>
+    </div>
+
+    <div type="text/javascript">
+      <script>
+        function initMap(){
+          let map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 35.6803997, lng: 139.7690174 },
+          zoom: 15
+          });
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVSaF9HyZVbk54X4fh-kcd_pA9wLeoUvI&callback=initMap" async defer></script>
+    </div>
+  </div>
+</div>
