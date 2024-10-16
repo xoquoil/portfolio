@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
       link.addEventListener('click', function(event) {
         event.preventDefault();
         let time = new Date().getTime();
-        let linkId = link.getAttribute('data-id');
+        let linkId = time;
         let fields = link.getAttribute('data-fields').replace(/new_\w+/g, linkId);
         document.querySelector('#pins').insertAdjacentHTML('beforeend', fields);
       });

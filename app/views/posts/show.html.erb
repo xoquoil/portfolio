@@ -1,0 +1,65 @@
+<div class="container-fluid form-container">
+  <div class="row">
+    <div class="col-md-4 col-12 mt-4">
+      <div class="card p-0">
+        <div class="card-title bg-light">
+          <h5>投稿一覧</h5>
+        </div>
+        <% if @posts.empty? %>
+          <p>掲示板がありません</p>
+        <% else %>
+          <%= render @posts %>
+        <% end %>
+      </div>
+    </div>
+
+  <div class="col-md-auto col-12 p-0 mt-4">
+    <div>
+      <h2><%= @post.name %></h2>
+    </div>
+    <div class="map">
+      <div id="map">
+      </div>
+    </div>
+
+    <div type="text/javascript">
+      <script>
+        const pins = <%= raw(@pins.to_json(only: [:latitude, :longitude, :name, :body])) %>;
+
+        function initMap(){
+          const map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15
+          });
+          if (pins.length > 0) {
+            let bounds = new google.maps.LatLngBounds();
+
+            pins.forEach((pin) => {
+              const position = { lat: parseFloat(pin.latitude), lng: parseFloat(pin.longitude) };
+
+              const marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                name: pin.name,
+              });
+
+              bounds.extend(position);
+
+              const infoWindow = new google.maps.InfoWindow({
+                content: `<h5>${pin.name}</h5><p>${pin.body}</p>`,
+              });
+
+              marker.addListener("click", () => {
+                infoWindow.open(map, marker);
+              });
+            });
+            map.fitBounds(bounds);
+          }else{
+            const defaultCenter = { lat: 35.6812, lng: 139.7671 }; // 例：東京駅
+            map.setCenter(defaultCenter);
+          }
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVSaF9HyZVbk54X4fh-kcd_pA9wLeoUvI&callback=initMap" async defer></script>
+    </div>
+  </div>
+</div>
