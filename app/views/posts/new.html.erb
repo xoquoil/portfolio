@@ -21,6 +21,7 @@
           <div id="pins">
             <%= form.fields_for :pins do |pin_form| %>
               <div class="pin-fields mb-5">
+                <p>'ピンの情報'</p>
                 <%= pin_form.text_field :name, class: "form-control", placeholder: 'ピンのタイトル' %>
         
                 <%= pin_form.text_field :latitude, class: "form-control", placeholder: '緯度' %>

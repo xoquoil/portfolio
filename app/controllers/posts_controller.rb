@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc)
   end
 
   def new
@@ -16,6 +16,12 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @posts = Post.order(created_at: :desc)
+    @post = Post.find(params[:id])
+    @pins = @post.pins
   end
 
   private
