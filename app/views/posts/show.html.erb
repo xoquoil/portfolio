@@ -1,4 +1,4 @@
-<div class="container-fluid form-container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-4 col-12 mt-4">
       <div class="card p-0">
@@ -8,7 +8,9 @@
         <% if @posts.empty? %>
           <p>掲示板がありません</p>
         <% else %>
-          <%= render @posts %>
+          <div class = 'index-container'>
+            <%= render @posts %>
+          </div>
         <% end %>
       </div>
     </div>
@@ -24,7 +26,7 @@
 
     <div type="text/javascript">
       <script>
-        const pins = <%= raw(@pins.to_json(only: [:latitude, :longitude, :name, :body])) %>;
+        const pins = <%= raw(@pins.to_json(only: [:latitude, :longitude, :name, :body, :address, :image])) %>;
 
         function initMap(){
           const map = new google.maps.Map(document.getElementById('map'), {
@@ -44,8 +46,15 @@
 
               bounds.extend(position);
 
+              var contentString = `
+                  <h7 class="fw-bold float">${pin.name}</h7><br>
+                  <h7>${pin.address ? '住所：' + pin.address : ''}</h7><br>
+                  <h7>${pin.body}</h7></br>
+                  ${pin.image.url ? '<img src="' + pin.image.url + '" width="300">' : ''}
+              `;
+
               const infoWindow = new google.maps.InfoWindow({
-                content: `<h5>${pin.name}</h5><p>${pin.body}</p>`,
+                content: contentString,
               });
 
               marker.addListener("click", () => {
