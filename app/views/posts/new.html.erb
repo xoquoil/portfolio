@@ -20,8 +20,8 @@
         
           <div id="pins">
             <%= form.fields_for :pins do |pin_form| %>
-              <div class="pin-fields mb-5">
-                <p>'ピンの情報'</p>
+              <div class="pin-fields mt-3">
+                <%= pin_form.label :name, "ピンの情報" %>
                 <%= pin_form.text_field :name, class: "form-control", placeholder: 'ピンのタイトル' %>
         
                 <%= pin_form.text_field :latitude, class: "form-control", placeholder: '緯度' %>
@@ -29,15 +29,16 @@
                 <%= pin_form.text_field :longitude, class: "form-control", placeholder: '経度' %>
 
                 <%= pin_form.text_area :body, class: "form-control", placeholder: 'ピンの説明' %>
-        
-                <%= pin_form.check_box :_destroy %>
-                <%= pin_form.label :_destroy, "削除" %>
               </div>
             <% end %>
           </div>
-          <%= link_to_add_fields "ピンを追加", form, :pins %>
+          <div id="detail-association-insertion-point"></div>
+          <%= link_to_add_association "ピンを追加", form, :pins, class: "btn btn-secondary", data: {
+            association_insertion_node: '#detail-association-insertion-point',
+            association_insertion_method: 'before'
+            }%>
           <div>
-            <%= form.submit "投稿", class: "btn btn-primary" %>
+            <%= form.submit "投稿", class: "btn btn-primary mt-1 float-end" %>
           </div>
         <% end %>
       </div>
