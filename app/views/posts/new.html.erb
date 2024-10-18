@@ -23,12 +23,16 @@
               <div class="pin-fields mt-3">
                 <%= pin_form.label :name, "ピンの情報" %>
                 <%= pin_form.text_field :name, class: "form-control", placeholder: 'ピンのタイトル' %>
+
+                <%= pin_form.text_field :address, class: "form-control", placeholder: '住所' %>
         
                 <%= pin_form.text_field :latitude, class: "form-control", placeholder: '緯度' %>
         
                 <%= pin_form.text_field :longitude, class: "form-control", placeholder: '経度' %>
 
                 <%= pin_form.text_area :body, class: "form-control", placeholder: 'ピンの説明' %>
+
+                <%= pin_form.file_field :image %>
               </div>
             <% end %>
           </div>
@@ -36,7 +40,7 @@
           <%= link_to_add_association "ピンを追加", form, :pins, class: "btn btn-secondary", data: {
             association_insertion_node: '#detail-association-insertion-point',
             association_insertion_method: 'before'
-            }%>
+          }%>
           <div>
             <%= form.submit "投稿", class: "btn btn-primary mt-1 float-end" %>
           </div>
