@@ -9,8 +9,13 @@ import "channels"
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+require("jquery")
+require("@nathanvda/cocoon")
+
 Rails.start()
 ActiveStorage.start()
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll('.add_fields').forEach(function(link) {
