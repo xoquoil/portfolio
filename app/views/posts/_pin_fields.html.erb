@@ -1,7 +1,7 @@
 <div class="pin-fields nested-fields mt-3">
   <%= f.label :name, "新規ピン" %>
   <%= link_to_remove_association "削除", f, class:"float" %>
-  <%= f.text_field :name, class: "form-control", placeholder: 'ピンのタイトル' %>
+  <%= f.text_field :name, class: "form-control", placeholder: 'タイトル' %>
 
   <%= f.text_field :address, class: "form-control", placeholder: '住所' %>
         
@@ -9,7 +9,7 @@
 
   <%= f.text_field :longitude, class: "form-control", placeholder: '経度' %>
 
-  <%= f.text_area :body, class: "form-control", placeholder: 'ピンの説明' %>
+  <%= f.text_area :body, class: "form-control", placeholder: '説明' %>
 
   <%= f.file_field :image %>
 </div>
