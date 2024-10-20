@@ -2,6 +2,8 @@
   <%= f.label :name, "新規ピン" %>
   <%= link_to_remove_association "削除", f, class:"float" %>
   <%= f.text_field :name, class: "form-control", placeholder: 'ピンのタイトル' %>
+
+  <%= f.text_field :address, class: "form-control", placeholder: '住所' %>
         
   <%= f.text_field :latitude, class: "form-control", placeholder: '緯度' %>
 

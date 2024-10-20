@@ -1,10 +1,13 @@
 <div class="col-sm-12">
   <div id="post-id-<%= post.id %>">    
     <div class="card">
-      
-      <%= link_to post.name, post_path(post) %>
-      <div class = 'text-end'>
-        <%= post.created_at %>
+      <div class="my-2">
+        <div class = 'float-start'>
+          <%= link_to post.name, post_path(post) %>
+        </div>
+        <div class = 'float-end'>
+          <%= post.created_at %>
+        </div>
       </div>
     </div>
   </div>
