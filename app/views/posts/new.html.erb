@@ -21,7 +21,7 @@
           <div id="pins">
             <%= form.fields_for :pins do |pin_form| %>
               <div class="pin-fields mt-3">
-                <%= pin_form.label :name, "ピンの情報" %>
+                <%= pin_form.label :name, "新規ピン" %>
                 <%= pin_form.text_field :name, class: "form-control", placeholder: 'ピンのタイトル' %>
 
                 <%= pin_form.text_field :address, class: "form-control", placeholder: '住所' %>
