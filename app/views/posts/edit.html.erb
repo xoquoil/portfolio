@@ -1,28 +1,47 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4 col-12 mt-4">
-      <div class="card p-0">
-        <div class="card-title bg-light">
-          <h5>投稿一覧</h5>
-        </div>
-        <% if @posts.empty? %>
-          <p>投稿がありません</p>
-        <% else %>
-          <div class = 'index-container'>
-            <%= render @posts %>
+  <% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from being saved:</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+    <div class="col-md-4 col-12 mt-4 form-container">
+      <div class="card p-1">
+        <%= form_with(model: @post, local: true) do |form| %>
+          <div class="mb-3">
+            <%= form.label :name, "タイトル" %>
+            <%= form.text_field :name, class: "form-control" %>
+          </div>
+
+          <div>
+            <% @pins.each do |pin| %>
+                <div class = 'card p-1' >
+                  <div>
+                    <%= link_to pin.name, edit_pin_path(pin), class: 'float-start' %>
+                    <%= link_to '削除', pin_path(pin), method: :delete, data: { confirm: '削除しますか？' }, class: 'float-end' %>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+
+          <div id="detail-association-insertion-point"></div>
+          <%= link_to_add_association "ピンを追加", form, :pins, class: "btn btn-secondary", data: {
+            association_insertion_node: '#detail-association-insertion-point',
+            association_insertion_method: 'before'
+          }%>
+          <div>
+            <%= form.submit "投稿", class: "btn btn-primary mt-1 float-end" %>
           </div>
         <% end %>
       </div>
     </div>
 
   <div class="col-md-auto col-12 p-0 mt-4">
-    <div class = 'float-start'>
-      <h2><%= @post.name %></h2>
-    </div>
-    <div class = 'float-end'>
-      <%= link_to '編集', edit_post_path(@post), class: 'btn btn-secondary' %>
-      <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '削除しますか？' }, class: 'btn btn-danger' %>
-    </div>
     <div class="map">
       <div id="map">
       </div>
