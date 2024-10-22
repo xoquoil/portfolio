@@ -7,4 +7,17 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "add_fields", data: { id: id, fields: fields.gsub("\n", "") })
   end
+
+  def natural_time_ago(time)
+    if time > 24.hours.ago
+      "#{time_ago_in_words(time)}前"
+    else
+      time.strftime("%Y年%m月%d日")
+    end
+  end
+
+  def page_title(title = '')
+    base_title = 'PinPoint'
+    title.present? ? "#{title} | #{base_title}" : base_title
+  end
 end
