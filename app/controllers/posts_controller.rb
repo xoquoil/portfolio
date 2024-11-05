@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :require_login, only: %i[index show]
 
   def index
     @posts = Post.order(created_at: :desc)
@@ -10,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to post_path(@post), notice: '投稿しました。'
     else
@@ -31,6 +32,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @pins = @post.pins
     if @post.update(post_params)
       redirect_to edit_post_path, notice: '投稿を更新しました'
     else
