@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  belongs_to :user
   has_many :pins, dependent: :destroy
   accepts_nested_attributes_for :pins, reject_if: :all_blank, allow_destroy: true
 

@@ -2,7 +2,11 @@
   <div id="post-id-<%= post.id %>">    
     <div class="card">
       <div>
-        <span class="float-start fw-bold"><%= 'ユーザー名' %></span>
+        <% if post.user.present? %>
+          <span class="float-start fw-bold"><%= post.user.name %></span>
+        <% else %>
+          <span class="float-start fw-bold"><%= 'ユーザー名' %></span>
+        <% end %>
         <span class="ms-1 text-muted float"><%= natural_time_ago(post.created_at) %></span>
       </div>
       <div class="mb-2">
