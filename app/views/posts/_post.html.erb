@@ -14,8 +14,8 @@
           <%= link_to post.name, post_path(post) %>
         </div>
         <div class = 'float-end me-1'>
-          <%= link_to '/' do %>
-            <i class="bi bi-star"></i>
+          <% if logged_in? %>
+            <%= render 'like_buttons', { post: post } %>
           <% end %>
         </div>
       </div>

@@ -24,8 +24,8 @@
             <% @pins.each do |pin| %>
                 <div class = 'card p-1' >
                   <div>
-                    <%= link_to pin.name, edit_pin_path(pin), class: 'float-start' %>
-                    <%= link_to '削除', pin_path(pin), method: :delete, data: { confirm: '削除しますか？' }, class: 'float-end' %>
+                    <%= link_to pin.name, edit_post_pin_path(@post, pin), class: 'float-start' %>
+                    <%= link_to '削除', post_pin_path(@post, pin), method: :delete, data: { confirm: '削除しますか？' }, class: 'float-end' %>
                   </div>
                 </div>
             <% end %>
