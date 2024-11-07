@@ -1,13 +1,13 @@
 class PinsController < ApplicationController
 
   def edit
-    @pin = Pin.find(params[:id])
-    @post = @pin.post
+    @post = Post.find(params[:post_id])
+    @pin = @post.pins.find(params[:id])
   end
 
   def update
-    @pin = Pin.find(params[:id])
-    @post = @pin.post
+    @post = Post.find(params[:post_id])
+    @pin = @post.pins.find(params[:id])
     if @pin.update(pin_params)
       redirect_to edit_post_path(@post), notice: 'ピンを更新しました'
     else

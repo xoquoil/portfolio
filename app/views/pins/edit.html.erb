@@ -17,7 +17,7 @@
         </div>
         
         <div id="pins">
-          <%= form_with(model: @pin, local: true) do |form| %>
+          <%= form_with(model: @pin, url: post_pin_path(@post, @pin), local: true) do |form| %>
             <div class="pin-fields mt-3">
               <%= form.label :name, "ピンを編集" %>
               <%= form.text_field :name, class: "form-control", placeholder: 'ピンのタイトル' %>

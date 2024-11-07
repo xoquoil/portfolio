@@ -12,6 +12,7 @@ gem 'public_suffix', '~> 6.0.1'
 gem "cocoon"
 gem 'rails-i18n', '~> 7.0.0'
 gem 'sorcery', '0.16.3'
+gem 'turbo-rails', '1.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7', '>= 6.1.7.8'
 # Use mysql as the database for Active Record
