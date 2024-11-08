@@ -1,0 +1,8 @@
+  <div class = 'float-start'>
+    <h2><%= post.name %></h2>
+  </div>
+  <%= link_to '共有', post_path(post), class: 'mx-1 btn btn-secondary' %>
+  <div class = 'float-end'>
+    <%= link_to '編集', edit_post_path(post), class: 'btn btn-secondary', id: 'js-map-for-post-#{post.id}' %>
+	<%= link_to '削除', post_path(post), method: :delete, data: { confirm: '削除しますか？' }, class: 'btn btn-danger' %>
+  </div>

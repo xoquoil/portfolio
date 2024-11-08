@@ -6,9 +6,13 @@ Rails.application.routes.draw do
     collection do
       get :likes
     end
+    member do
+      post 'mapheader'
+    end
   end
   resources :likes, only: %i[create destroy]
   resources :users
+  get 'mypage', to: 'posts#myposts'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'

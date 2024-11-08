@@ -1,38 +1,30 @@
 <% content_for(:title, '投稿一覧') %>
 
-<div class="container-fluid form-container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-4 col-12 mt-4">
-      <div class="card p-0">
-        <div class="card-title bg-light">
-          <h5>投稿一覧</h5>
+    <div class="col-4 mt-4">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="myposts-tab" data-bs-toggle="tab" data-bs-target="#myposts" type="button" role="tab" aria-controls="myposts" aria-selected="true">投稿</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="myposts" role="tabpanel" aria-labelledby="myposts-tab">
+          <% if @posts.empty? %>
+            <p>投稿がありません</p>
+          <% else %>
+            <div class = 'index-container'>
+              <% @posts.each do |post| %>
+                <%= render post %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
-        <% if @posts.empty? %>
-          <p>投稿がありません</p>
-        <% else %>
-          <div class = 'index-container'>
-            <%= render @posts %>
-          </div>
-        <% end %>
-      </div>
+    </div>
     </div>
 
-  <div class="col-md-auto col-12 p-0 mt-4">
-    <div class="map">
-      <div id="map">
-      </div>
-    </div>
-
-    <div type="text/javascript">
-      <script>
-        function initMap(){
-          let map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 35.6803997, lng: 139.7690174 },
-          zoom: 15
-          });
-        }
-      </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVSaF9HyZVbk54X4fh-kcd_pA9wLeoUvI&callback=initMap" async defer></script>
+    <div class="col-auto p-0 mt-4">
+      <%= render 'map', { post: @post, pins: @pins } %>
     </div>
   </div>
 </div>

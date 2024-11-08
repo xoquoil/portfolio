@@ -1,5 +1,4 @@
-<% content_for(:title, @post.name) %>
-
+<% content_for(:title, 'マイページ') %>
 <div class="container-fluid">
   <div class="row">
     <div class="col-4 mt-4">
@@ -7,19 +6,33 @@
         <li class="nav-item" role="presentation">
           <button class="nav-link active" id="myposts-tab" data-bs-toggle="tab" data-bs-target="#myposts" type="button" role="tab" aria-controls="myposts" aria-selected="true">投稿</button>
         </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="like-tab" data-bs-toggle="tab" data-bs-target="#like" type="button" role="tab" aria-controls="like" aria-selected="false">お気に入り</button>
+        </li>
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="myposts" role="tabpanel" aria-labelledby="myposts-tab">
-          <% if @posts.empty? %>
+          <% if @myposts.empty? %>
             <p>投稿がありません</p>
           <% else %>
             <div class = 'index-container'>
-              <% @posts.each do |post| %>
+              <% @myposts.each do |post| %>
                 <%= render post %>
               <% end %>
             </div>
           <% end %>
         </div>
+      <div class="tab-pane fade" id="like" role="tabpanel" aria-labelledby="like-tab">
+        <% if @likeposts.empty? %>
+          <p>投稿がありません</p>
+        <% else %>
+          <div class = 'index-container'>
+            <% @likeposts.each do |post| %>
+              <%= render post %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
     </div>
 

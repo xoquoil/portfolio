@@ -11,7 +11,7 @@
       </div>
       <div class="mb-2">
         <div class = 'float-start'>
-          <%= link_to post.name, post_path(post) %>
+          <%= link_to post.name, mapheader_post_path(post),method: :post, remote: true, onclick: "updateMap(#{post.pins.to_json(only: [:latitude, :longitude, :name, :body, :address, :image])});" %>
         </div>
         <div class = 'float-end me-1'>
           <% if logged_in? %>
