@@ -19,7 +19,7 @@
           <div class='dropdown-menu dropdown-menu-end'>
             <div class='dropdown-item'><%= current_user.name %></div>
             <div class='dropdown-divider'></div>
-            <%= link_to 'マイページ', login_path, class: 'dropdown-item' %>
+            <%= link_to 'マイページ', mypage_path, class: 'dropdown-item' %>
             <%= link_to 'ログアウト', logout_path, method: :delete, data: { confirm: 'ログアウトしますか？' }, class: 'dropdown-item' %>
           </div>
         </li>

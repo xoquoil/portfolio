@@ -3,6 +3,25 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.order(created_at: :desc)
+    @post = Post.order(created_at: :desc).first
+    @pins = @post.pins
+  end
+
+  def myposts
+    @myposts = current_user.posts.order(created_at: :desc)
+    @likeposts = current_user.like_posts.includes(:user)
+    @mypost = @myposts.first
+    @likepost = @likeposts.first
+    @post = @mypost
+    @pins = @post.pins
+  end
+
+  def mapheader
+    @post = Post.find(params[:id])
+    @pins = @post.pins
+    respond_to do |format|
+      format.js { render 'posts/mapheader' }
+    end
   end
 
   def new
