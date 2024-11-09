@@ -29,25 +29,3 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".post-link").forEach((element) => {
-      element.addEventListener("click", (event) => {
-        event.preventDefault();
-        
-        const postId = event.currentTarget.dataset.postId;
-        
-        // Ajaxリクエストでupdate_detailsアクションを呼び出す
-        fetch(`/posts/${postId}/update_details`, {
-          headers: {
-            "X-Requested-With": "XMLHttpRequest"
-          }
-        })
-        .then(response => response.text())
-        .then(data => {
-          // サーバーから返ってきたJavaScriptを実行
-          eval(data);
-        })
-        .catch(error => console.error("Error:", error));
-      });
-    });
-  });

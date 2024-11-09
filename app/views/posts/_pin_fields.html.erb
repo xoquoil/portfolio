@@ -1,15 +1,25 @@
 <div class="pin-fields nested-fields mt-3">
   <%= f.label :name, "新規ピン" %>
   <%= link_to_remove_association "削除", f, class:"float" %>
-  <%= f.text_field :name, class: "form-control", placeholder: 'タイトル' %>
+  <%= f.text_field :name, class: "form-control mb-1", placeholder: 'ピンのタイトル' %>
+  <div class="row pb-1">
+    <div class="col-10 pe-0">
+      <%= f.text_field :address, class: "address-input form-control", placeholder: '住所' %>
+    </div>
+    <div class="col-2 ps-0">
+      <button type="button" class = "search-address-btn btn btn-primary float-end">検索</button>
+    </div>
+  </div>
+  <div class="row pb-1">
+  <div class="col-6 pe-0">
+  <%= f.text_field :latitude, class: "latitude-input form-control", placeholder: '緯度' %>
+  </div>
+  <div class="col-6 ps-0">
+  <%= f.text_field :longitude, class: "longitude-input form-control", placeholder: '経度' %>
+  </div>
+  </div>
 
-  <%= f.text_field :address, class: "form-control", placeholder: '住所' %>
-        
-  <%= f.text_field :latitude, class: "form-control", placeholder: '緯度' %>
-
-  <%= f.text_field :longitude, class: "form-control", placeholder: '経度' %>
-
-  <%= f.text_area :body, class: "form-control", placeholder: '説明' %>
+  <%= f.text_area :body, class: "form-control", placeholder: 'ピンの説明' %>
 
   <%= f.file_field :image %>
 </div>

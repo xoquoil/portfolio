@@ -2,16 +2,16 @@
 
 <div class="container-fluid">
   <div class="row">
-  <% if @post.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from being saved:</h2>
-    <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from being saved:</h2>
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <div class="col-md-4 col-12 mt-4 form-container">
       <div class="card p-1">
         <%= form_with(model: @post, local: true) do |form| %>
@@ -43,57 +43,8 @@
       </div>
     </div>
 
-  <div class="col-md-auto col-12 p-0 mt-4">
-    <div class="map">
-      <div id="map">
-      </div>
-    </div>
-
-    <div type="text/javascript">
-      <script>
-        const pins = <%= raw(@pins.to_json(only: [:latitude, :longitude, :name, :body, :address, :image])) %>;
-
-        function initMap(){
-          const map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15
-          });
-          if (pins.length > 0) {
-            let bounds = new google.maps.LatLngBounds();
-
-            pins.forEach((pin) => {
-              const position = { lat: parseFloat(pin.latitude), lng: parseFloat(pin.longitude) };
-
-              const marker = new google.maps.Marker({
-                position: position,
-                map: map,
-                name: pin.name,
-              });
-
-              bounds.extend(position);
-
-              var contentString = `
-                  <h7 class="fw-bold float">${pin.name}</h7><br>
-                  ${pin.address ? '<p>住所：' + pin.address + ' </p>' : ''}
-                  <h7>${pin.body}</h7></br>
-                  ${pin.image.url ? '<img src="' + pin.image.url + '" width="300">' : ''}
-              `;
-
-              const infoWindow = new google.maps.InfoWindow({
-                content: contentString,
-              });
-
-              marker.addListener("click", () => {
-                infoWindow.open(map, marker);
-              });
-            });
-            map.fitBounds(bounds);
-          }else{
-            const defaultCenter = { lat: 35.6812, lng: 139.7671 }; // 例：東京駅
-            map.setCenter(defaultCenter);
-          }
-        }
-      </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVSaF9HyZVbk54X4fh-kcd_pA9wLeoUvI&callback=initMap" async defer></script>
+    <div class="col-md-auto col-12 p-0 mt-4">
+      <%= render 'map', { post: @post, pins: @pins } %>
     </div>
   </div>
 </div>
