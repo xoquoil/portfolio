@@ -1,2 +1,2 @@
-$('#js-mapheader-<%= @post.id %>').replaceWith('<%= j(render 'posts/mapheader', post: @post) %>');
+$('#js-mapheader').html('<%= j(render 'posts/mapheader', post: @post) %>');
 console.log("#post-mapheader-<%= @post.id %>")
