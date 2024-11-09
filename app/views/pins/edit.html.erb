@@ -20,17 +20,27 @@
           <%= form_with(model: @pin, url: post_pin_path(@post, @pin), local: true) do |form| %>
             <div class="pin-fields mt-3">
               <%= form.label :name, "ピンを編集" %>
-              <%= form.text_field :name, class: "form-control", placeholder: 'ピンのタイトル' %>
+              <%= form.text_field :name, class: "form-control mb-1", placeholder: 'ピンのタイトル' %>
+                <div class="row pb-1">
+                  <div class="col-10 pe-0">
+                    <%= form.text_field :address, class: "address-input form-control", placeholder: '住所' %>
+                  </div>
+                  <div class="col-2 ps-0">
+                    <button type="button" class = "search-address-btn btn btn-primary float-end">検索</button>
+                  </div>
+                </div>
+                <div class="row pb-1">
+                  <div class="col-6 pe-0">
+                    <%= form.text_field :latitude, class: "latitude-input form-control", placeholder: '緯度' %>
+                  </div>
+                  <div class="col-6 ps-0">
+                    <%= form.text_field :longitude, class: "longitude-input form-control", placeholder: '経度' %>
+                  </div>
+                </div>
 
-              <%= form.text_field :address, class: "form-control", placeholder: '住所' %>
-        
-              <%= form.text_field :latitude, class: "form-control", placeholder: '緯度' %>
-        
-              <%= form.text_field :longitude, class: "form-control", placeholder: '経度' %>
+                <%= form.text_area :body, class: "form-control", placeholder: 'ピンの説明' %>
 
-              <%= form.text_area :body, class: "form-control", placeholder: 'ピンの説明' %>
-
-              <%= form.file_field :image %>
+                <%= form.file_field :image %>
             </div>
             <div>
               <%= form.submit "投稿", class: "btn btn-primary mt-1 float-end" %>
@@ -41,49 +51,6 @@
     </div>
 
   <div class="col-md-auto col-12 p-0 mt-4">
-    <div class="map">
-      <div id="map">
-      </div>
-    </div>
-
-    <div type="text/javascript">
-      <script>
-        const pin = <%= raw(@pin.to_json(only: [:latitude, :longitude, :name, :body, :address, :image])) %>;
-
-        function initMap(){
-          const map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15
-          });
-            let bounds = new google.maps.LatLngBounds();
-
-              const position = { lat: parseFloat(pin.latitude), lng: parseFloat(pin.longitude) };
-
-              const marker = new google.maps.Marker({
-                position: position,
-                map: map,
-                name: pin.name,
-              });
-
-              bounds.extend(position);
-
-              var contentString = `
-                  <h7 class="fw-bold float">${pin.name}</h7><br>
-                  ${pin.address ? '<p>住所：' + pin.address + ' </p>' : ''}
-                  <h7>${pin.body}</h7></br>
-                  ${pin.image.url ? '<img src="' + pin.image.url + '" width="300">' : ''}
-              `;
-
-              const infoWindow = new google.maps.InfoWindow({
-                content: contentString,
-              });
-
-              marker.addListener("click", () => {
-                infoWindow.open(map, marker);
-              });
-            map.fitBounds(bounds);
-        }
-      </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVSaF9HyZVbk54X4fh-kcd_pA9wLeoUvI&callback=initMap" async defer></script>
-    </div>
+    <%= render 'posts/map', {pins: @pins } %>
   </div>
 </div>

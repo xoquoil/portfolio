@@ -37,6 +37,9 @@
     </div>
 
     <div class="col-auto p-0 mt-4">
+    <div id = 'js-mapheader'>
+  <%= render 'posts/mapheader', post: @post %>
+</div>
       <%= render 'map', { post: @post, pins: @pins } %>
     </div>
   </div>
