@@ -1,12 +1,25 @@
 <header>
   <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
+  <div class='collapse navbar-collapse justify-content-start' id='navbarSupportedContent'>
     <%= link_to 'TOPページ', posts_path, class: 'nav-link' %>
     <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'
       aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
       <span class='navbar-toggler-icon'></span>
     </button>
+    </div>
 
-    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+    <div class='collapse navbar-collapse justify-content-center' id='navbarSupportedContent'>
+    <%= search_form_for @q, url: posts_path, method: :get, html: { class: 'form-inline' } do |f| %>
+      <div class="input-group">
+        <%= f.search_field :name_cont, class: 'form-control', placeholder: "検索ワード" %>
+        <div class="input-group-append">
+        <%= f.submit '検索', class: 'btn btn-primary', value: "検索" %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+
+    <div class='navbar-collapse collapse justify-content-end' id='navbarSupportedContent'>
       <ul class='navbar-nav ms-auto main-nav align-items-center'>
         <li class='nav-item'>
           <%= link_to '投稿', new_post_path, class: 'nav-link' %>
