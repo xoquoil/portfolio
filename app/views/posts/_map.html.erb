@@ -5,7 +5,7 @@
 <div type="text/javascript">
 	<script>
 	  let map;
-	  let marker;
+	  let newMarker;
 	  let pins = <%= pins.present? ? raw(pins.to_json(only: [:latitude, :longitude, :name, :body, :address, :image])) : '[]' %>;
 
 		function initMap(){
@@ -18,7 +18,7 @@
 				pins.forEach((pin) => {
 					const position = { lat: parseFloat(pin.latitude), lng: parseFloat(pin.longitude) };
 
-					marker = new google.maps.Marker({
+					const marker = new google.maps.Marker({
 						position: position,
 						map: map,
 						name: pin.name,
@@ -72,10 +72,10 @@
           form.querySelector(".longitude-input").value = location.lng();
 
           // マーカーを設定
-          if (marker) {
-            marker.setMap(null);
+          if (newMarker) {
+            newMarker.setMap(null);
           }
-          marker = new google.maps.Marker({
+          newMarker = new google.maps.Marker({
             map: map,
             position: location,
           });
