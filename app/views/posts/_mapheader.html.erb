@@ -1,10 +1,17 @@
-  <div class = 'float-start'>
-    <h2><%= post.name %></h2>
+<div class = 'row'>
+  <div class = 'col d-flex justify-content-start'>
+    <h2 class="m-0"><%= post.name %></h2>
+    <div class="mx-1 twitter">
+      <%= link_to "https://twitter.com/share?url=#{post_url(post)}&text= #{post.name}",class: 'm-1 p-1 btn btn-outline-secondary', target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+        <i class="float-start bi bi-twitter"></i>
+        <h7 class="float-end m-0 fw-bold">共有</h7>
+      <% end %>
+    </div>
   </div>
-  <%= link_to '共有', post_path(post), class: 'mx-1 btn btn-secondary' %>
   <% if current_user == post.user %>
-    <div class = 'float-end'>
-      <%= link_to '編集', edit_post_path(post), class: 'btn btn-secondary', id: 'js-map-for-post-#{post.id}' %>
-	  <%= link_to '削除', post_path(post), method: :delete, data: { confirm: '削除しますか？' }, class: 'btn btn-danger' %>
+    <div class = 'col d-flex justify-content-end'>
+      <%= link_to '編集', edit_post_path(post), class: 'm-1 btn btn-secondary', id: 'js-map-for-post-#{post.id}' %>
+	  <%= link_to '削除', post_path(post), method: :delete, data: { confirm: '削除しますか？' }, class: 'm-1 btn btn-danger' %>
     </div>
   <% end %>
+</div>
