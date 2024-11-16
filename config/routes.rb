@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'google_login_api/callback'
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'posts#index'
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   resources :likes, only: %i[create destroy]
   resources :users
   resources :password_resets, only: %i[new create edit update]
+  post '/google_login_api/callback', to: 'google_login_api#callback'
   get 'mypage', to: 'posts#myposts'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'

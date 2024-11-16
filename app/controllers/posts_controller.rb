@@ -5,17 +5,13 @@ class PostsController < ApplicationController
 
   def index
     @posts = @q.result.order(created_at: :desc)
-    @post = Post.order(created_at: :desc).first
-    @pins = @post.pins
+    @post = @posts.first
   end
 
   def myposts
     @myposts = current_user.posts.order(created_at: :desc)
     @likeposts = current_user.like_posts.includes(:user).order(created_at: :desc)
-    @mypost = @myposts.first
-    @likepost = @likeposts.first
-    @post = @mypost
-    @pins = @post.pins
+    @post = @myposts.first
   end
 
   def mapheader
@@ -41,7 +37,6 @@ class PostsController < ApplicationController
 
   def show
     @posts = Post.order(created_at: :desc)
-    @pins = @post.pins
   end
 
   def edit

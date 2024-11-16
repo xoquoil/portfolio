@@ -6,7 +6,7 @@
 	<script>
 	  let map;
 	  let newMarker;
-	  let pins = <%= pins.present? ? raw(pins.to_json(only: [:latitude, :longitude, :name, :body, :address, :image])) : '[]' %>;
+	  let pins = <%= post.present? ? raw(post.pins.to_json(only: [:latitude, :longitude, :name, :body, :address, :image])) : '[]' %>;
 
 		function initMap(){
 			map = new google.maps.Map(document.getElementById('map'), {

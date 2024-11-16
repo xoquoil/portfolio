@@ -1,4 +1,5 @@
 <div class="container">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <div class="row">
     <div class=" col-md-10 col-lg-8 mx-auto">
       <h1>ログイン</h1>
@@ -16,6 +17,19 @@
       <div class='text-center'>
         <%= link_to '登録ページへ', new_user_path %>
         <%= link_to 'パスワードをお忘れの方はこちら', new_password_reset_path %>
+      </div>
+      <div id="g_id_onload"
+        data-client_id="1040062858247-5l8k6qmrvca73nm46lm6hoaihc6vna9g.apps.googleusercontent.com"
+        data-login_uri="http://localhost:3000/google_login_api/callback"
+        data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin my-1"
+        data-type="standard"
+        data-size="large"
+        data-theme="outline"
+        data-text="sign_in_with"
+        data-shape="rectangular"
+        data-logo_alignment="left">
       </div>
     </div>
   </div>
