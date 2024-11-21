@@ -71,7 +71,7 @@ Rails.application.configure do
     port: 587,
     domain: 'pinpoint-map.com', # 独自ドメインを指定
     user_name: 'apikey',       # 固定値（"apikey"）
-    password: ENV['SENDGRID_API_KEY'],
+    password: ENV['SENDGRID_APIKEY'],
     authentication: :plain,
     enable_starttls_auto: true
   }
