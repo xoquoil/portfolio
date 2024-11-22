@@ -1,7 +1,9 @@
 <header>
   <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
   <div class='collapse navbar-collapse justify-content-start' id='navbarSupportedContent'>
-    <%= link_to 'TOPページ', posts_path, class: 'nav-link' %>
+  <%= link_to posts_path, class: 'ms-2 navbar-brand', alt: "Logo" do %>
+    <%= image_tag "top.png" %>
+    <% end %>
     <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'
       aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
       <span class='navbar-toggler-icon'></span>
