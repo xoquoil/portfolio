@@ -28,3 +28,11 @@
     max-height: 70vh;
     overflow-y: auto;
   }
+
+
+  .navbar-brand img {
+    max-height: 40px;
+    height: 100%; /* ヘッダーの高さに合わせる */
+    width: auto; /* アスペクト比を維持 */
+    object-fit: contain; /* 必要に応じて調整 */
+  }

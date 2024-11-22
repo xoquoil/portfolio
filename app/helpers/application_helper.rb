@@ -20,4 +20,31 @@ module ApplicationHelper
     base_title = 'PinPoint'
     title.present? ? "#{title} | #{base_title}" : base_title
   end
+
+  def default_meta_tags
+    {
+      site: 'Pinpoint',
+      title: '作成したマップを共有できるサービス',
+      reverse: true,
+      charset: 'utf-8',
+      description: 'Pinpointでは、自身で作成したマップを共有し、お得な情報や誰かの思い出を見ることができます。',
+      keywords: '場所,地図,マップ,住所,共有',
+      canonical: 'https://pinpoint-map.com',
+      separator: '|',
+      og:{
+        site_name: :site,
+        title: :title,
+        description: :description,
+        type: 'website',
+        url: 'https://pinpoint-map.com',
+        image: image_url('ogp.png'),
+        local: 'ja-JP'
+      },
+      twitter: {
+        card: 'summary_large_image',
+        site: '@obvyamdrss',
+        image: image_url('ogp.png')
+      }
+    }
+  end
 end
