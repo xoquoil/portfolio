@@ -1,9 +1,15 @@
-<footer id='footer' class='footer-bottom bg-light fixed-bottom'>
+<footer id='footer' class='pt-2 py-2 footer-bottom bg-light fixed-bottom'>
   <div class='container'>
-    <div class='row'>
-      <div class='col-sm-6 col-12'>
-        <div class='copyright'>
-          <p>お問い合わせ</p>
+    <div class='copyright'>
+      <div class="d-flex flex-column align-items-center">
+        <!-- "Pinpoint" を上に配置 -->
+        <h4>Pinpoint</h4>
+        <!-- リンク群 -->
+        <div class="d-flex justify-content-center">
+          <%= link_to 'このサイトについて', privacy_policy_path, class: 'mx-2 nav-link link-secondary' %>
+          <%= link_to '利用規約', terms_of_use_path, class: 'mx-2 nav-link link-secondary' %>
+          <%= link_to 'プライバシーポリシー', privacy_policy_path, class: 'mx-2 nav-link link-secondary' %>
+          <%= link_to 'お問い合わせ', privacy_policy_path, class: 'mx-2 nav-link link-secondary' %>
         </div>
       </div>
     </div>

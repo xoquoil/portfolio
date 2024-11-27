@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to post_path(@post), notice: '投稿しました。'
+      redirect_to post_path(@post), success: '投稿しました。'
     else
       render :new
     end
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
   def update
     @pins = @post.pins
     if @post.update(post_params)
-      redirect_to edit_post_path, notice: '投稿を更新しました'
+      redirect_to edit_post_path, success: '投稿を更新しました'
     else
       render :edit
     end
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path, notice: '投稿を削除しました', status: :see_other
+    redirect_to posts_path, success: '投稿を削除しました', status: :see_other
   end
 
   private
@@ -65,7 +65,7 @@ class PostsController < ApplicationController
 
   def authorize_user
     unless @post.user == current_user
-      redirect_to posts_path, alert: '権限がありません。'
+      redirect_to posts_path, danger: '権限がありません。'
     end
   end
 

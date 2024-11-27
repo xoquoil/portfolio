@@ -16,13 +16,13 @@ class GoogleLoginApiController < ApplicationController
       end
       
       session[:user_id] = user.id
-      redirect_to root_path, notice: 'ログインしました'
+      redirect_to root_path, success: 'ログインしました'
     rescue Google::Auth::IDTokens::VerificationError => e
       Rails.logger.error "Google Token Verification Failed: #{e.message}"
-      redirect_to root_path, alert: 'Googleログインに失敗しました'
+      redirect_to root_path, danger: 'Googleログインに失敗しました'
     rescue StandardError => e
       Rails.logger.error "Login Error: #{e.message}"
-      redirect_to root_path, alert: 'エラーが発生しました'
+      redirect_to root_path, danger: 'エラーが発生しました'
     end
   end
 
@@ -30,7 +30,7 @@ class GoogleLoginApiController < ApplicationController
 
   def verify_g_csrf_token
     if cookies["g_csrf_token"].blank? || params[:g_csrf_token].blank? || cookies["g_csrf_token"] != params[:g_csrf_token]
-      redirect_to root_path, notice: '不正なアクセスです'
+      redirect_to root_path, danger: '不正なアクセスです'
     end
   end
 end
