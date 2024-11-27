@@ -10,7 +10,7 @@ class PinsController < ApplicationController
   def update
     @pin = @post.pins.find(params[:id])
     if @pin.update(pin_params)
-      redirect_to edit_post_path(@post), notice: 'ピンを更新しました'
+      redirect_to edit_post_path(@post), success: 'ピンを更新しました'
     else
       render :edit
     end
@@ -19,7 +19,7 @@ class PinsController < ApplicationController
   def destroy
     @pin = Pin.find(params[:id])
     @pin.destroy
-    redirect_to edit_post_path(@post), notice: 'ピンを削除しました', status: :see_other
+    redirect_to edit_post_path(@post), success: 'ピンを削除しました', status: :see_other
   end
 
   private
@@ -30,7 +30,7 @@ class PinsController < ApplicationController
 
   def authorize_user
     unless @post.user == current_user
-      redirect_to posts_path, alert: '権限がありません。'
+      redirect_to posts_path, danger: '権限がありません。'
     end
   end
 

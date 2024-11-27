@@ -12,8 +12,8 @@
         </ul>
       </div>
     <% end %>
-    <div class="col-md-4 col-12 mt-4 form-container">
-      <div class="card p-1 bg-light">
+    <div class="col-md-4 col-12 mt-4">
+      <div class="index-container card mx-1 p-2 bg-light">
         <%= form_with(model: @post, local: true) do |form| %>
           <div class="mb-3">
             <%= form.label :name, "タイトル" %>

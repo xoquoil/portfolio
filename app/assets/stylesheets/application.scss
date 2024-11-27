@@ -16,17 +16,26 @@
  @import 'bootstrap/dist/css/bootstrap';
  #map {
     height: 600px;
-    width: 1120px;
-  }
-
-  .form-container {
-    max-height: 80vh;
-    overflow-y: auto; 
+    width: 1250px;
   }
 
   .index-container {
     max-height: 70vh;
     overflow-y: auto;
+    overflow-x: hidden; 
+  }
+
+  .index-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .index-container::-webkit-scrollbar-track {
+    background: #e0e0e0;
+  }
+  
+  .index-container::-webkit-scrollbar-thumb {
+    background: #aaaaaa;
+    border-radius: 6px;
   }
 
 
@@ -35,4 +44,8 @@
     height: 100%; /* ヘッダーの高さに合わせる */
     width: auto; /* アスペクト比を維持 */
     object-fit: contain; /* 必要に応じて調整 */
+  }
+
+  ul {
+    list-style-type: disc;
   }
