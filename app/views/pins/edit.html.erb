@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row">
+  <div class="row mx-1">
     <% if @post.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from being saved:</h2>
@@ -10,8 +10,8 @@
         </ul>
       </div>
     <% end %>
-    <div class="col-md-4 col-12 mt-4 index-container">
-      <div class="card p-1">
+    <div class="col-4 mt-4">
+      <div class="index-container card p-1 bg-light">
         <div class="my-1">
           <%= link_to '戻る', edit_post_path(@post), class: 'btn btn-secondary'%>
         </div>
@@ -50,7 +50,7 @@
       </div>
     </div>
 
-  <div class="col-md-auto col-12 p-0 mt-4">
-    <%= render 'posts/map', {pins: @pins } %>
+  <div class="col-8 p-0 mt-4">
+    <%= render 'posts/map', {post: @post } %>
   </div>
 </div>

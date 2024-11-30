@@ -1,7 +1,7 @@
 <% content_for(:title, '新規MAP') %>
 
 <div class="container-fluid">
-  <div class="row">
+  <div class="row mx-1">
     <% if @post.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from being saved:</h2>
@@ -12,7 +12,7 @@
         </ul>
       </div>
     <% end %>
-    <div class="col-md-4 col-12 mt-4">
+    <div class="col-4 mt-4">
       <div class="index-container card mx-1 p-2 bg-light">
         <%= form_with(model: @post, local: true) do |form| %>
           <div class="mb-3">
@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <div class="col-md-auto col-12 p-0 mt-4">
+    <div class="col-8 p-0 mt-4">
       <%= render 'map', {post: nil } %>
     </div>
   </div>
