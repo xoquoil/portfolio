@@ -3,14 +3,14 @@
     <div class="card">
       <div>
         <% if post.user.present? %>
-          <span class="float-start fw-bold"><%= post.user.name %></span>
+          <span class="ms-1 float-start fw-bold"><%= post.user.name %></span>
         <% else %>
-          <span class="float-start fw-bold"><%= 'ユーザー名' %></span>
+          <span class="ms-1 float-start fw-bold"><%= 'ユーザー名' %></span>
         <% end %>
         <span class="ms-1 text-muted float"><%= natural_time_ago(post.created_at) %></span>
       </div>
       <div class="mb-2">
-        <div class = 'float-start'>
+        <div class = 'ms-2 float-start'>
           <%= link_to post.name, mapheader_post_path(post),method: :post, remote: true, onclick: "updateMap(#{post.pins.to_json(only: [:latitude, :longitude, :name, :body, :address, :image])});" %>
         </div>
         <div class = 'float-end me-1'>

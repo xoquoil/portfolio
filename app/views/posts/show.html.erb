@@ -1,33 +1,10 @@
 <% content_for(:title, @post.name) %>
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-4 mt-4">
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="myposts-tab" data-bs-toggle="tab" data-bs-target="#myposts" type="button" role="tab" aria-controls="myposts" aria-selected="true">投稿</button>
-        </li>
-      </ul>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="myposts" role="tabpanel" aria-labelledby="myposts-tab">
-          <% if @posts.empty? %>
-            <p>投稿がありません</p>
-          <% else %>
-            <div class = 'index-container'>
-              <% @posts.each do |post| %>
-                <%= render post %>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-    </div>
-    </div>
-
-    <div class="col-auto p-0 mt-4">
+<div class = 'mt-2 mx-5'>
       <div id = 'js-mapheader'>
         <%= render 'posts/mapheader', post: @post %>
       </div>
       <%= render 'map', { post: @post, pins: @pins } %>
-    </div>
-  </div>
+      </div>
 </div>
