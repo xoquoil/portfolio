@@ -29,10 +29,12 @@
 
         <li class='nav-item dropdown dropdown-slide'>
           <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
-            <%= image_tag 'sample.jpg', class: 'rounded-circle mr15', width: '40', height: '40' %>
+            <%= image_tag current_user.avatar.url, class: 'rounded-circle mr15', width: '40', height: '40' %>
           <% end %>
           <div class='dropdown-menu dropdown-menu-end'>
-            <div class='dropdown-item'><%= current_user.name %></div>
+            <div class='dropdown-item'>
+              <%= link_to current_user.name, profile_path, class: 'p-0 nav-link' %>
+            </div>
             <div class='dropdown-divider'></div>
             <%= link_to 'マイページ', mypage_path, class: 'dropdown-item' %>
             <%= link_to 'ログアウト', logout_path, method: :delete, data: { confirm: 'ログアウトしますか？' }, class: 'dropdown-item' %>
