@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_11_19_083932) do
+ActiveRecord::Schema.define(version: 2024_11_30_070603) do
 
   create_table "likes", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2024_11_19_083932) do
     t.string "remember_digest"
     t.string "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"

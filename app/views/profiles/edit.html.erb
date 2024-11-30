@@ -1,0 +1,28 @@
+<% content_for(:title, 'プロフィール編集') %>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-10 col-lg-8 mx-auto">
+      <h3>プロフィール編集</h3>
+      <% if @user.errors.any? %>
+        <div id="error_explanation", class="alert alert-danger">
+          <ul class='mb-0'>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= form_with model: @user, url: profile_path, local: true do |f| %>
+        <div class="mb-3">
+          <%= f.label :name, 'ニックネーム',class:"form-label" %><br />
+          <%= f.text_field :name,class:"form-control" %>
+        </div>
+        <div class="mb-3">
+        <%= f.label :avatar, 'アバター',class:"form-label" %><br>
+        <%= f.file_field :avatar, class:"form-control" %><br>
+        </div>
+          <%= f.submit class:"btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

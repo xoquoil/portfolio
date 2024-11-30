@@ -13,7 +13,7 @@
           <% if @posts.empty? %>
             <p>投稿がありません</p>
           <% else %>
-            <div class = 'index-container'>
+            <div class = 'border-start border-end index-container'>
               <% @posts.each do |post| %>
                 <%= render post %>
               <% end %>
