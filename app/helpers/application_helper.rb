@@ -36,13 +36,12 @@ module ApplicationHelper
         description: :description,
         type: 'website',
         url: 'https://pinpoint-map.com',
-        image: image_url('ogp.png'),
+        image: image_url('ogp.png', host: 'https://pinpoint-map.com'),
         local: 'ja-JP'
       },
       twitter: {
         card: 'summary_large_image',
-        site: '@obvyamdrss',
-        image: image_url('ogp.png')
+        image: image_url('ogp.png', host: 'https://pinpoint-map.com')
       }
     }
   end
