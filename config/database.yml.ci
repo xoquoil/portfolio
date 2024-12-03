@@ -5,4 +5,4 @@ test:
   database: app_test
   username: root
   password: <%= ENV.fetch('DATABASE_PASS') { 'bar' } %>
-  host: <%= ENV.fetch('DATABASE_HOST') { 'db' } %>
+  host: 127.0.0.1
