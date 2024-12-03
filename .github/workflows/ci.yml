@@ -18,8 +18,7 @@ jobs:
         ports:
           - 3306:3306
         env:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: pinpoint_test
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
         options: >-
           --health-cmd="mysqladmin ping --silent"
           --health-interval=10s
