@@ -18,7 +18,10 @@ jobs:
         ports:
           - 3306:3306
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_ROOT_PASSWORD: "${DATABASE_PASS:-bar}"
+          MYSQL_DATABASE: "${DATABASE_NAME:-app_development}"
+          MYSQL_USER: "${DATABASE_USER:-foo}"
+          MYSQL_PASSWORD: "${DATABASE_PASS:-bar}"
         options: >-
           --health-cmd="mysqladmin ping --silent"
           --health-interval=10s
