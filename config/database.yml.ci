@@ -5,4 +5,4 @@ test:
   database: pinpoint_test
   username: root
   password: password
-  host: localhost
+  host: db
