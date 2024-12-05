@@ -30,7 +30,7 @@
 						<h7 class="fw-bold float">${pin.name}</h7><br>
 						${pin.address ? '<p>住所：' + pin.address + ' </p>' : ''}
 						<h7>${pin.body}</h7></br>
-						${pin.image.url ? '<img src="' + pin.image.url + '" width="300">' : ''}
+						${pin.image.url ? '<img src="' + pin.image.url + '" >' : ''}
 					`;
 
 					const infoWindow = new google.maps.InfoWindow({
