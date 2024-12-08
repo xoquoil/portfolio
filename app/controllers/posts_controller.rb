@@ -31,6 +31,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post), success: '投稿しました。'
     else
+      flash.now[:danger] = '投稿に失敗しました'
       render :new
     end
   end
@@ -48,6 +49,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to edit_post_path, success: '投稿を更新しました'
     else
+      flash.now[:danger] = '投稿の更新に失敗しました'
       render :edit
     end
   end

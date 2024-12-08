@@ -24,6 +24,7 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: 'PinPoint',
+      title: '作成したマップを共有できるサービス',
       reverse: true,
       charset: 'utf-8',
       description: 'Pinpointでは、自身で作成したマップを共有し、お得な情報や誰かの思い出を見ることができます。',
@@ -31,7 +32,7 @@ module ApplicationHelper
       canonical: 'https://pinpoint-map.com',
       separator: '|',
       og:{
-        site_name: :site,
+        site_name: 'PinPoint',
         title: '作成したマップを共有できるサービス',
         description: :description,
         type: 'website',

@@ -50,6 +50,8 @@ group :development, :test do
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
   gem 'rubocop-rspec_rails', require: false
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -67,6 +69,7 @@ group :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'database_cleaner-active_record'
+  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

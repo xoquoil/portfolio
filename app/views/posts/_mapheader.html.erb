@@ -13,8 +13,8 @@
   </div>
   <% if current_user == post.user %>
     <div class = 'col d-flex justify-content-end'>
-      <%= link_to '編集', edit_post_path(post), class: 'm-1 btn btn-secondary', id: 'js-map-for-post-#{post.id}' %>
-	  <%= link_to '削除', post_path(post), method: :delete, data: { confirm: '削除しますか？' }, class: 'm-1 btn btn-danger' %>
+      <%= link_to '編集', edit_post_path(post), class: 'm-1 btn btn-secondary', id: "js-map-for-post-#{post.id}" %>
+	  <%= link_to '削除', post_path(post), method: :delete, data: { confirm: '削除しますか？' }, class: 'm-1 btn btn-danger', id: "button-delete-#{post.id}" %>
     </div>
   <% end %>
 </div>
