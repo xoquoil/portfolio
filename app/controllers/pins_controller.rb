@@ -12,6 +12,7 @@ class PinsController < ApplicationController
     if @pin.update(pin_params)
       redirect_to edit_post_path(@post), success: 'ピンを更新しました'
     else
+      flash.now[:danger] = 'ピンの更新に失敗しました'
       render :edit
     end
   end

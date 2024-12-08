@@ -1,23 +1,21 @@
 <% content_for(:title,"パスワードリセット")%>
 <div class="container">
-    <div class="row">
+    <div class="row mt-5">
         <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <h1>パスワードリセット</h1>
+            <h3>パスワードリセット</h3>
             <%= form_with model:@user,url:password_reset_path(@token),local: true do |f|%>
                 <%=render "shared/flash_message",object: f.object%>
-                <div class="form-group">
+                <div class="form-group fw-bold">
                     <%=f.label :email%>
                     <%=@user.email%>
                 </div>
 
-                <div class="form-group">
-                    <%=f.label :password%>
-                    <%=f.password_field :password,class: "form-control"%>
+                <div class="form-group mt-3">
+                    <%=f.password_field :password, placeholder: 'パスワード', class: "form-control"%>
                 </div>
 
                 <div class="form-group">
-                    <%=f.label :password_confirmation%>
-                    <%=f.password_field :password_confirmation,class: "form-control"%>
+                    <%=f.password_field :password_confirmation, placeholder: 'パスワード確認', class: "my-1 form-control"%>
                 </div>
                 <%=f.submit "更新する",class:"btn btn-primary"%>
             <%end%>
