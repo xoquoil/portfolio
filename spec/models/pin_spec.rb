@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Pin, type: :model do
-
   context '全てのフィールドが有効な場合' do
     it '有効であること' do
       pin = build(:pin)
@@ -34,14 +33,14 @@ RSpec.describe Pin, type: :model do
 
   context '本文が65535文字以内の場合' do
     it '有効であること' do
-      pin = build(:pin, body: 'a' * 65535)
+      pin = build(:pin, body: 'a' * 65_535)
       expect(pin).to be_valid
     end
   end
 
   context '本文が65536文字以上の場合' do
     it '無効であること' do
-      pin = build(:pin, body: 'a' * 65536)
+      pin = build(:pin, body: 'a' * 65_536)
       expect(pin).to be_invalid
       expect(pin.errors[:body]).to include('は65535文字以内で入力してください')
     end

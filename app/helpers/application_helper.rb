@@ -22,6 +22,12 @@ module ApplicationHelper
   end
 
   def default_meta_tags
+    base_meta_tags.merge(og_meta_tags).merge(twitter_meta_tags)
+  end
+
+  private
+
+  def base_meta_tags
     {
       site: 'PinPoint',
       title: '作成したマップを共有できるサービス',
@@ -30,8 +36,13 @@ module ApplicationHelper
       description: 'Pinpointでは、自身で作成したマップを共有し、お得な情報や誰かの思い出を見ることができます。',
       keywords: '場所,地図,マップ,住所,共有',
       canonical: 'https://pinpoint-map.com',
-      separator: '|',
-      og:{
+      separator: '|'
+    }
+  end
+
+  def og_meta_tags
+    {
+      og: {
         site_name: 'PinPoint',
         title: '作成したマップを共有できるサービス',
         description: :description,
@@ -39,7 +50,12 @@ module ApplicationHelper
         url: 'https://pinpoint-map.com',
         image: image_url('ogp.png', host: 'https://pinpoint-map.com'),
         local: 'ja-JP'
-      },
+      }
+    }
+  end
+
+  def twitter_meta_tags
+    {
       twitter: {
         card: 'summary_large_image',
         image: image_url('ogp.png', host: 'https://pinpoint-map.com')

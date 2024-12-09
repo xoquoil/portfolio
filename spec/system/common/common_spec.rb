@@ -5,6 +5,7 @@ RSpec.describe '共通系', type: :system do
     before do
       visit root_path
     end
+
     describe 'ヘッダー' do
       it 'ヘッダーが正しく表示されていること' do
         expect(page).to have_content('ログイン'), 'ヘッダーに「ログイン」というテキストが表示されていません'
@@ -18,7 +19,7 @@ RSpec.describe '共通系', type: :system do
     end
 
     describe 'タイトル' do
-     it 'タイトルが正しく表示されていること' do
+      it 'タイトルが正しく表示されていること' do
         expect(page).to have_title("PinPoint"), 'トップページのタイトルに「PinPoint」が含まれていません。'
       end
     end
@@ -26,9 +27,11 @@ RSpec.describe '共通系', type: :system do
 
   context 'ログイン後' do
     let(:user) { create(:user) }
+
     before do
       login_as(user)
     end
+
     describe 'ヘッダー' do
       it 'ヘッダーが正しく表示されていること' do
         expect(page).to have_content('投稿する'), 'ヘッダーに「投稿」というテキストが表示されていません'
@@ -37,8 +40,9 @@ RSpec.describe '共通系', type: :system do
         expect(page).to have_content('ログアウト'), 'ヘッダーに「ログアウト」というテキストが表示されていません'
       end
     end
+
     describe 'タイトル' do
-     it 'タイトルが正しく表示されていること' do
+      it 'タイトルが正しく表示されていること' do
         expect(page).to have_title("PinPoint"), 'トップページのタイトルに「PinPoint」が含まれていません。'
       end
     end
