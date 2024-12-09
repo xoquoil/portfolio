@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'プロフィール', type: :system do
   let(:user) { create(:user) }
+
   before { login_as(user) }
 
   it 'プロフィールの詳細が見られること' do
@@ -20,7 +21,7 @@ RSpec.describe 'プロフィール', type: :system do
     Capybara.assert_current_path("/profile/edit", ignore_query: true)
     expect(current_path).to eq(edit_profile_path), 'プロフィール編集ページに遷移していません'
     fill_in 'ニックネーム', with: '編集後ニックネーム'
-    file_path = Rails.root.join('spec', 'fixtures', 'top.png')
+    file_path = Rails.root.join("spec/fixtures/top.png")
     attach_file('アバター', file_path)
     click_button '更新'
     Capybara.assert_current_path("/profile", ignore_query: true)

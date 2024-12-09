@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-
   context '全てのフィールドが有効な場合' do
     it '有効であること' do
       post = build(:post)

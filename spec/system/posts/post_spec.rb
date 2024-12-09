@@ -4,12 +4,11 @@ RSpec.describe '投稿', type: :system do
   let(:user) { create(:user) }
   let(:another_user) { create(:user) }
   let(:post) { create(:post, user: user) }
-  let(:like) { create(:like, user: another_user, post:post) }
+  let(:like) { create(:like, user: another_user, post: post) }
 
   describe '投稿のCRUD' do
     describe '投稿の一覧' do
       context 'ログインしている場合' do
-
         it '正しいタイトルが表示されていること' do
           login_as(user)
           expect(page).to have_title("投稿一覧 | PinPoint"), '投稿一覧ページのタイトルに「投稿一覧 | PinPoint」が含まれていません。'
@@ -32,13 +31,14 @@ RSpec.describe '投稿', type: :system do
         end
       end
     end
-    describe '投稿の詳細' do
 
+    describe '投稿の詳細' do
       context 'ログインしている場合' do
         before do
           post
           login_as(user)
         end
+
         it '投稿の詳細が表示されること' do
           within "#js-mapheader" do
             page.find_link(post.name, exact_text: true).click
@@ -48,6 +48,7 @@ RSpec.describe '投稿', type: :system do
           expect(page).to have_content post.name
           expect(page).to have_content post.user.name
         end
+
         it '正しいタイトルが表示されていること' do
           within "#js-mapheader" do
             page.find_link(post.name, exact_text: true).click
@@ -56,6 +57,7 @@ RSpec.describe '投稿', type: :system do
         end
       end
     end
+
     describe '投稿の作成' do
       context 'ログインしていない場合' do
         it 'ログインページにリダイレクトされること' do
@@ -94,6 +96,7 @@ RSpec.describe '投稿', type: :system do
 
     describe '投稿の更新' do
       before { post }
+
       context 'ログインしていない場合' do
         it 'ログインページにリダイレクトされること' do
           visit edit_post_path(post)
@@ -109,6 +112,7 @@ RSpec.describe '投稿', type: :system do
             visit posts_path
             find("#js-map-for-post-#{post.id}").click
           end
+
           it '投稿が更新できること' do
             fill_in 'タイトル', with: '編集後テストタイトル'
             click_button '投稿'
@@ -138,6 +142,7 @@ RSpec.describe '投稿', type: :system do
 
     describe '投稿の削除' do
       before { post }
+
       context '自分の投稿' do
         it '投稿が削除できること' do
           login_as(user)
@@ -156,9 +161,13 @@ RSpec.describe '投稿', type: :system do
         end
       end
     end
+
     describe '投稿のブックマーク一覧' do
-      before { post }
-      before { like }
+      before do
+        post
+        like
+      end
+
       context '1件もブックマークしていない場合' do
         it '1件もない旨のメッセージが表示されること' do
           login_as(user)

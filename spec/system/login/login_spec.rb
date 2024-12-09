@@ -39,6 +39,7 @@ RSpec.describe 'ログイン・ログアウト', type: :system do
       before do
         login_as(user)
       end
+
       it 'ログアウトできること' do
         find('#header-profile').click
         click_on('ログアウト')

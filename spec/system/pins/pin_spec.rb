@@ -4,12 +4,11 @@ RSpec.describe 'ピン', type: :system do
   let(:user) { create(:user) }
   let(:another_user) { create(:user) }
   let(:post) { create(:post, user: user) }
-  let(:like) { create(:like, user: another_user, post:post) }
+  let(:like) { create(:like, user: another_user, post: post) }
   let(:pin) { create(:pin, post: post) }
 
   describe 'ピンのCRUD' do
     describe 'ピンの作成' do
-
       context 'ログインしている場合' do
         before do
           login_as(user)
@@ -44,8 +43,11 @@ RSpec.describe 'ピン', type: :system do
     end
 
     describe 'ピンの更新' do
-      before { post }
-      before { pin }
+      before do
+        post
+        pin
+      end
+
       context 'ログインしていない場合' do
         it 'ログインページにリダイレクトされること' do
           visit edit_post_pin_path(post, pin)
@@ -62,6 +64,7 @@ RSpec.describe 'ピン', type: :system do
             find("#js-map-for-post-#{post.id}").click
             click_on(pin.name)
           end
+
           it 'ピンが更新できること' do
             fill_in 'ピンのタイトル', with: '編集後テストタイトル'
             fill_in '住所', with: '編集後テスト住所'
@@ -85,8 +88,11 @@ RSpec.describe 'ピン', type: :system do
     end
 
     describe 'ピンの削除' do
-      before { post }
-      before { pin }
+      before do
+        post
+        pin
+      end
+
       context '自分のピン' do
         it 'ピンが削除できること' do
           login_as(user)
