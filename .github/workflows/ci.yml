@@ -45,7 +45,15 @@ jobs:
         cp config/database.yml.ci config/database.yml
         bundle exec rails db:create RAILS_ENV=test
         bundle exec rails db:schema:load RAILS_ENV=test
-        
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16 # 必要なバージョンに置き換えてください
+
+    - name: Install Node.js dependencies
+      run: yarn install
+
     - name: Compile assets for test
       run: RAILS_ENV=test rails webpacker:compile
 
