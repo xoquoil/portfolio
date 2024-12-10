@@ -22,7 +22,9 @@ module ApplicationHelper
   end
 
   def default_meta_tags
+    # rubocop:disable Style/RedundantAssignment
     meta_tags = base_meta_tags.merge(og_meta_tags).merge(twitter_meta_tags)
+    # rubocop:enable Style/RedundantAssignment
     meta_tags
   end
 
