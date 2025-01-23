@@ -14,7 +14,9 @@
         </div>
         <div class='me-1'>
           <% if logged_in? %>
-            <%= render 'like_buttons', { post: post } %>
+            <% unless current_user == post.user %>
+              <%= render 'like_buttons', { post: post } %>
+            <% end %>
           <% end %>
         </div>
       </div>
