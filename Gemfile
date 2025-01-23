@@ -19,6 +19,7 @@ gem 'config', '4.0.0'
 gem 'googleauth'
 gem "meta-tags"
 gem 'mini_magick'
+gem "google-cloud-storage"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7', '>= 6.1.7.8'
 # Use mysql as the database for Active Record
