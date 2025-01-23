@@ -83,7 +83,7 @@
 ## 使用技術
 | カテゴリ | 技術内容 |
 | --- | --- | 
-| サーバーサイド | Ruby on Rails 7.0.6・Ruby 3.2.2 |
+| サーバーサイド | Ruby on Rails 7.0.6・Ruby 3.3.5 |
 | フロントエンド | Ruby on Rails・JavaScript |
 | CSSフレームワーク | Bootstrap |
 | Web API | Google API |
