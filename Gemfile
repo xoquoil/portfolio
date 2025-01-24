@@ -10,22 +10,23 @@ gem 'kaminari'
 gem 'bootstrap'
 gem 'public_suffix', '~> 6.0.1'
 gem "cocoon"
-gem 'rails-i18n', '~> 7.0.0'
+gem 'rails-i18n', '~> 8.0.0'
 gem 'sorcery', '0.16.3'
 gem 'turbo-rails', '1.1.1'
-gem 'ransack', '3.2.1'
+gem 'ransack', '4.2.1'
 gem 'letter_opener_web', '2.0.0'
 gem 'config', '4.0.0'
 gem 'googleauth'
 gem "meta-tags"
 gem 'mini_magick'
 gem "google-cloud-storage"
+gem 'ostruct'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.7', '>= 6.1.7.8'
+gem 'rails', '~> 8.0', '>= 8.0.1'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 6.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -60,7 +61,7 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem 'rack-mini-profiler', '~> 2.0'
+  # gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

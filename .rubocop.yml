@@ -17,3 +17,8 @@ RSpec/ExampleLength:
 
 RSpec/NestedGroups:
   Enabled: false
+
+AllCops:
+  Exclude:
+    - 'db/migrate/*'
+    - 'bin/*'

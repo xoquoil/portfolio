@@ -29,9 +29,11 @@ class User < ApplicationRecord
     avatar.present? ? avatar.url : nil
   end
 
-  private
-
   def set_default_avatar
     self.avatar ||= 'sample.jpg'
+  end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    ["name"]
   end
 end
