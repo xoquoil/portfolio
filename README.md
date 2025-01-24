@@ -83,9 +83,9 @@
 ## 使用技術
 | カテゴリ | 技術内容 |
 | --- | --- | 
-| サーバーサイド | Ruby on Rails 6.1.7.8・Ruby 3.3.5 |
+| サーバーサイド | Ruby on Rails 8.0.1・Ruby 3.3.5 |
 | フロントエンド | Ruby on Rails・JavaScript |
-| CSSフレームワーク | Bootstrap |
+| CSSフレームワーク | Bootstrap・sass-rails |
 | Web API | Google API |
 | データベースサーバー | MySQL |
 | ファイルサーバー | Google Cloud Storage |
