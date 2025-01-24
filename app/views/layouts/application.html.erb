@@ -5,10 +5,10 @@
     <title><%= page_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= favicon_link_tag 'favicon.png' %>
+    <%= favicon_link_tag 'favicon2.png' %>
     <%= display_meta_tags(default_meta_tags) %>
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet">
   </head>

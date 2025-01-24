@@ -12,4 +12,8 @@ class Pin < ApplicationRecord
   def image_url
     image.present? ? image.url : nil
   end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    ["name", "address"]
+  end
 end
