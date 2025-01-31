@@ -1,3 +1,4 @@
-<%= link_to likes_path(post_id: post.id), method: :post, remote: true, id: "js-like-button-for-post-#{post.id}" do %>
+<%= link_to likes_path(post_id: post.id), class:"m-0 text-decoration-none", method: :post, remote: true, id: "js-like-button-for-post-#{post.id}" do %>
   <i class="bi bi-star"></i>
+  <span class="text-secondary"><%= post.likes.count %></span>
 <% end %>

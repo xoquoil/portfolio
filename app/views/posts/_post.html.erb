@@ -14,9 +14,10 @@
         </div>
         <div class='me-1'>
           <% if logged_in? %>
-            <% unless current_user == post.user %>
-              <%= render 'like_buttons', { post: post } %>
-            <% end %>
+            <%= render 'like_buttons', { post: post } %>
+          <% else %>
+            <i class="bi bi-star text-body-tertiary"></i>
+            <span class="text-secondary"><%= post.likes.count %></span>
           <% end %>
         </div>
       </div>
