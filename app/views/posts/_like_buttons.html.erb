@@ -1,7 +1,12 @@
 <div class='ms-auto'>
-  <% if current_user.like?(post) %>
-    <%= render 'unlike', { post: post } %>
+  <% if current_user == post.user %>
+    <i class="bi bi-star-fill text-body-tertiary"></i>
+    <span class="text-secondary"><%= post.likes.count %></span>
   <% else %>
-    <%= render 'like', { post: post } %>
+    <% if current_user.like?(post) %>
+      <%= render 'unlike', { post: post } %>
+    <% else %>
+      <%= render 'like', { post: post } %>
+    <% end %>
   <% end %>
 </div>
