@@ -25,7 +25,9 @@
                 <div class = 'card p-1' >
                   <div>
                     <%= link_to pin.name, edit_post_pin_path(@post, pin), class: 'float-start' %>
-                    <%= link_to '削除', post_pin_path(@post, pin), method: :delete, data: { confirm: '削除しますか？' }, class: 'float-end', id: "button-delete-pin-#{pin.id}" %>
+                    <%= link_to post_pin_path(@post, pin), method: :delete, id: "button-delete-pin-#{pin.id}", data: {confirm: '削除しますか？' }, class: 'float-end' do %>
+                      <i class="bi bi-trash-fill"></i>
+                    <% end %>
                   </div>
                 </div>
             <% end %>
