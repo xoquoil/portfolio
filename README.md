@@ -84,13 +84,14 @@
 ## 使用技術
 | カテゴリ | 技術内容 |
 | --- | --- | 
-| サーバーサイド | Ruby on Rails 8.0.1・Ruby 3.3.5 |
-| フロントエンド | Ruby on Rails・JavaScript |
-| CSSフレームワーク | Bootstrap・sass-rails |
+| バックエンド | Ruby 3.3.5 / Ruby on Rails 8.0.1（APIモード） |
+| フロントエンド |JavaScript |
+| CSSフレームワーク | Bootstrap|
 | Web API | Google API |
 | データベースサーバー | MySQL |
+| 環境構築 | Docker |
+| インフラ | Heroku |
 | ファイルサーバー | Google Cloud Storage |
-| アプリケーションサーバー | Puma |
 | バージョン管理ツール | GitHub |
 <br>
 
