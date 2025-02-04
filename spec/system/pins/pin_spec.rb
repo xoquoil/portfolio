@@ -37,7 +37,7 @@ RSpec.describe 'ピン', type: :system do
           fill_in 'ピンの説明', with: 'ピンの説明テスト'
           click_button '投稿'
           expect(page).to have_content('投稿に失敗しました'), 'フラッシュメッセージ「投稿に失敗しました」が表示されていません'
-          expect(page).to have_content('Pins nameを入力してください'), 'エラーメッセージ「Pins nameを入力してください」が表示されていません'
+          expect(page).to have_content('ピンのタイトルを入力してください'), 'エラーメッセージ「ピンのタイトルを入力してください」が表示されていません'
         end
       end
     end

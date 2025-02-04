@@ -89,7 +89,7 @@ RSpec.describe '投稿', type: :system do
           fill_in 'タイトル', with: ''
           click_button '投稿'
           expect(page).to have_content('投稿に失敗しました'), 'フラッシュメッセージ「投稿に失敗しました」が表示されていません'
-          expect(page).to have_content('Nameを入力してください'), 'エラーメッセージ「Nameを入力してください」が表示されていません'
+          expect(page).to have_content('投稿タイトルを入力してください'), 'エラーメッセージ「投稿タイトルを入力してください」が表示されていません'
         end
       end
     end
