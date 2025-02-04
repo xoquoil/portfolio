@@ -2,9 +2,29 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      post: ポスト
+      pin: ピン
+      like: お気に入り
     attributes:
       user:
         email: メールアドレス
         name: ユーザー名
         password: パスワード
         password_confirmation: パスワード確認
+        avatar: プロフィール画像
+      post:
+        name: 投稿タイトル
+      pins:
+        name: ピンのタイトル
+        address: 住所
+        latitude: 緯度
+        longitude: 経度
+        image: 画像
+        body: ピンの説明
+      pin:
+        name: ピンのタイトル
+        address: 住所
+        latitude: 緯度
+        longitude: 経度
+        image: 画像
+        body: ピンの説明

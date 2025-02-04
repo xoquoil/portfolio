@@ -71,7 +71,7 @@ RSpec.describe 'ピン', type: :system do
             fill_in '緯度', with: 34
             fill_in '経度', with: 124
             fill_in 'ピンの説明', with: '編集後ピンの説明テスト'
-            click_button '投稿'
+            click_button '更新'
             Capybara.assert_current_path("/posts/#{post.id}/edit", ignore_query: true)
             expect(current_path).to eq edit_post_path(post)
             expect(page).to have_content('ピンを更新しました'), 'フラッシュメッセージ「ピンを更新しました」が表示されていません'
@@ -80,7 +80,7 @@ RSpec.describe 'ピン', type: :system do
 
           it 'ピンの作成に失敗すること' do
             fill_in 'ピンのタイトル', with: ''
-            click_button '投稿'
+            click_button '更新'
             expect(page).to have_content('ピンの更新に失敗しました'), 'フラッシュメッセージ「ピンの更新に失敗しました」が表示されていません'
           end
         end
