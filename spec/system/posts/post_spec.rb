@@ -115,7 +115,7 @@ RSpec.describe '投稿', type: :system do
 
           it '投稿が更新できること' do
             fill_in 'タイトル', with: '編集後テストタイトル'
-            click_button '投稿'
+            click_button '更新'
             Capybara.assert_current_path("/posts/#{post.id}/edit", ignore_query: true)
             expect(current_path).to eq edit_post_path(post)
             expect(page).to have_content('投稿を更新しました'), 'フラッシュメッセージ「投稿を更新しました」が表示されていません'
@@ -125,7 +125,7 @@ RSpec.describe '投稿', type: :system do
 
           it '投稿の作成に失敗すること' do
             fill_in 'タイトル', with: ''
-            click_button '投稿'
+            click_button '更新'
             expect(page).to have_content('投稿の更新に失敗しました'), 'フラッシュメッセージ「投稿の更新に失敗しました」が表示されていません'
           end
         end

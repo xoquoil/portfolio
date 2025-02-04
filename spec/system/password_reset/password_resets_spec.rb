@@ -22,7 +22,7 @@ RSpec.describe 'パスワードリセット', type: :system do
 
   it 'パスワードが変更できる' do
     visit new_password_reset_path
-    fill_in 'Email', with: user.email
+    fill_in 'メールアドレス', with: user.email
     click_button '送信'
     expect(page).to have_content('メールを送信しました。'), 'フラッシュメッセージ「メールを送信しました。」が表示されていません'
     visit edit_password_reset_path(user.reload.reset_password_token)

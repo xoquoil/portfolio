@@ -39,6 +39,6 @@ RSpec.describe 'プロフィール', type: :system do
     fill_in 'ニックネーム', with: ''
     click_button '更新'
     expect(page).to have_content('ユーザー情報の更新に失敗しました'), 'フラッシュメッセージ「ユーザー情報の更新に失敗しました」が表示されていません'
-    expect(page).to have_content('Nameを入力してください'), 'エラーメッセージ「Nameを入力してください」が表示されていません'
+    expect(page).to have_content('ユーザー名を入力してください'), 'エラーメッセージ「ユーザー名を入力してください」が表示されていません'
   end
 end

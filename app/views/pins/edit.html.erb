@@ -2,11 +2,11 @@
 
 <div class="container-fluid">
   <div class="row mx-1">
-    <% if @post.errors.any? %>
+    <% if @pin.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from being saved:</h2>
         <ul>
-          <% @post.errors.full_messages.each do |message| %>
+          <% @pin.errors.full_messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
         </ul>

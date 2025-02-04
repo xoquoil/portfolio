@@ -10,14 +10,14 @@ RSpec.describe 'ユーザー登録', type: :system do
     it 'ユーザーが新規作成できること' do
       visit '/users/new'
       expect do
-        fill_in 'ニックネーム', with: 'たろう'
+        fill_in 'ユーザー名', with: 'たろう'
         fill_in 'メールアドレス', with: 'example@example.com'
         fill_in 'パスワード', with: '12345678'
         fill_in 'パスワード確認', with: '12345678'
         click_button '登録'
         Capybara.assert_current_path("/", ignore_query: true)
       end.to change(User, :count).by(1)
-      expect(page).to have_content('ユーザを登録しました。'), 'フラッシュメッセージ「ユーザを登録しました。」が表示されていません'
+      expect(page).to have_content('ユーザーを登録しました。'), 'フラッシュメッセージ「ユーザーを登録しました。」が表示されていません'
     end
   end
 
@@ -28,9 +28,9 @@ RSpec.describe 'ユーザー登録', type: :system do
         fill_in 'メールアドレス', with: 'example@example.com'
         click_button '登録'
       end.not_to(change(User, :count))
-      expect(page).to have_content('Nameを入力してください'), 'フラッシュメッセージ「Nameを入力してください」が表示されていません'
-      expect(page).to have_content('Passwordは3文字以上で入力してください'), 'フラッシュメッセージ「Passwordは3文字以上で入力してください」が表示されていません'
-      expect(page).to have_content('Password confirmationを入力してください'), 'フラッシュメッセージ「Password confirmationを入力してください」が表示されていません'
+      expect(page).to have_content('ユーザー名を入力してください'), 'フラッシュメッセージ「ユーザー名を入力してください」が表示されていません'
+      expect(page).to have_content('パスワードは3文字以上で入力してください'), 'フラッシュメッセージ「パスワードは3文字以上で入力してください」が表示されていません'
+      expect(page).to have_content('パスワード確認を入力してください'), 'フラッシュメッセージ「パスワード確認を入力してください」が表示されていません'
     end
   end
 end
