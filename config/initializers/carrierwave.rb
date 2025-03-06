@@ -7,5 +7,4 @@ CarrierWave.configure do |config|
     google_project: 'maximal-journey-438210-q1'
   }
   config.fog_directory  = 'pinpoint-map'
-  config.fog_public     = true
 end
