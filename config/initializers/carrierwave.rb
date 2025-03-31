@@ -7,9 +7,9 @@ CarrierWave.configure do |config|
       google_json_key_string: ENV['GCS_CREDENTIALS'],
       google_project: 'maximal-journey-438210-q1'
     }
-    config.fog_directory  = 'pinpoint-map'
+    config.fog_directory = 'pinpoint-map'
   else
     config.storage = :file
-    config.enable_processing = !Rails.env.test? # テスト環境では画像処理を無効化
+    config.enable_processing = !Rails.env.test?
   end
 end
